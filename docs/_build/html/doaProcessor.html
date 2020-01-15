@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>DoaProcessor class &#8212; PyDoA  documentation</title>
+    <title>Documenation for DoaProcessor class &#8212; PyDoA  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -33,222 +33,22 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-DoaProcessor">
-<span id="doaprocessor-class"></span><h1>DoaProcessor class<a class="headerlink" href="#module-DoaProcessor" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="DoaProcessor.DoaProcessor">
-<em class="property">class </em><code class="descclassname">DoaProcessor.</code><code class="descname">DoaProcessor</code><span class="sig-paren">(</span><em>datafile</em>, <em>n</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor" title="Permalink to this definition">¶</a></dt>
-<dd><p>This class provides functions to process DoA (Direction of Arrival) datafile.
-DoA data file cotains direction of sound detected by the microphone array.</p>
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.assignUserLabel">
-<code class="descname">assignUserLabel</code><span class="sig-paren">(</span><em>group='group-1'</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.assignUserLabel" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function assigns the user identifiers on the basis of direction of arrival of sound.
-This function assumes that participants are sitting clockwise around ReSpeaker. First participant in clockwise fasion is considered user-1 and so on.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>group</strong> (<em>str</em>) – Group label.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">DataFrame – Pandas Dataframe with column users for each detected direction</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.drawNetwork">
-<code class="descname">drawNetwork</code><span class="sig-paren">(</span><em>group</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.drawNetwork" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function draws an interaction network from the  edge file generated from speaker’s speaking order.
-This network is drawn as weighted graph where the thickness of edge represents the frequency of interaction.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>group</strong> (<em>str</em>) – Group label.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.generateEdgeFile">
-<code class="descname">generateEdgeFile</code><span class="sig-paren">(</span><em>group='group-1'</em>, <em>threshold=3</em>, <em>edge_filename='edge.txt'</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.generateEdgeFile" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function generates a file containing the edge in the form of (i,j) where i and j represents users-i and user-j, and this sequence represent their speaking order.
-If a user a speaks after user b then it will be considered an edge (b,a)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>group</strong> (<em>str</em>) – Group Label</li>
-<li><strong>threshold</strong> (<em>int</em>) – This parameter specify the threshold to consider a valid speaking activity. For instance, if direction is detected for every 200 ms then a threshold=1 implies that if a user has five consecutive entries then it will be considered as speaking activity.</li>
-<li><strong>edge_filename</strong> (<em>str</em>) – Name of the newly generated edge file.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List – list containing item in the form (i,j) which represent edge between user-i and user-j.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.generateWindowWiseSpeakingTime">
-<code class="descname">generateWindowWiseSpeakingTime</code><span class="sig-paren">(</span><em>window_size='30S'</em>, <em>time='sec'</em>, <em>group='group-1'</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.generateWindowWiseSpeakingTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function generates speaking time metric for total duration by dividing in specified time window and then computing speaking time for each of those window.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>window_size</strong> (<em>str
-Possible values</em>) – Size of time window.</li>
-<li><strong>time</strong> (<em>str
-Possible values sec</em><em>, </em><em>min</em><em>, </em><em>hour</em>) – Time resolution of computer speaking time.</li>
-<li><strong>group</strong> (<em>str</em>) – Group label.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">DataFrame – Dataframe with columns start_time, end_time, and speaking time for each user in that window.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.getGroupFrame">
-<code class="descname">getGroupFrame</code><span class="sig-paren">(</span><em>group</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.getGroupFrame" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function extracts DoA data for a specific group.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>group</strong> (<em>str</em>) – Group label.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Pandas DataFrame – Dataframe with columns timestamp, directions</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.getGroups">
-<code class="descname">getGroups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.getGroups" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function extracts group information (e.g. number of groups, labels of groups)</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list – List of group labels</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.getHighestNdegrees">
-<code class="descname">getHighestNdegrees</code><span class="sig-paren">(</span><em>sep</em>, <em>group='group-1'</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.getHighestNdegrees" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function will search through the directions for specfied group and extract  n directions with highest frequencies.
-It simply count the degree frequency and return n degrees which are seperated by  particular degrees.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>sep</strong> (<em>int</em>) – Distance between speakers in degrees. Default values are 360/n.</li>
-<li><strong>group</strong> (<em>str</em>) – Group label.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List – list containing n degrees with highest frequencies</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.getPeakDegree">
-<code class="descname">getPeakDegree</code><span class="sig-paren">(</span><em>group='group-1'</em>, <em>bins=36</em>, <em>sigma=2.0</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.getPeakDegree" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function will find the peaks from degree distribution.
-It uses gaussian kernel to smoothify the degree distribution and then apply peak finding algorithm to detect peaks.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>group</strong> (<em>str</em>) – Group label.</li>
-<li><strong>bins</strong> (<em>int</em>) – Bin size</li>
-<li><strong>sigma</strong> (<em>double</em>) – Sigma for Gaussian kernel</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List – list of peak degrees</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.getSpeakingTime">
-<code class="descname">getSpeakingTime</code><span class="sig-paren">(</span><em>plot</em>, <em>time='sec'</em>, <em>granularity=200</em>, <em>group='group-1'</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.getSpeakingTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function computes the speaking time for each user.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>plot</strong> (<em>Bool</em>) – Flag for plotting speaking time.</li>
-<li><strong>time</strong> (<em>str
-Possible values 'sec'</em><em>,</em><em>'min'</em><em>,</em><em>'hour'</em>) – Time resolusion for computing speaking time.</li>
-<li><strong>granularity</strong> (<em>int</em>) – Duration of  each detected direction</li>
-<li><strong>group</strong> (<em>str</em>) – Group Label.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">List – list containing total speaking time for each user.</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.plotDegreeDistribution">
-<code class="descname">plotDegreeDistribution</code><span class="sig-paren">(</span><em>group='group-1'</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.plotDegreeDistribution" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function plot the frequency distribution of degrees for specified group.
-It simply count the degree frequency and plot a bar graph.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>group</strong> (<em>str</em>) – Label of group.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="DoaProcessor.DoaProcessor.setDegreeForSpeaker">
-<code class="descname">setDegreeForSpeaker</code><span class="sig-paren">(</span><em>degrees</em><span class="sig-paren">)</span><a class="headerlink" href="#DoaProcessor.DoaProcessor.setDegreeForSpeaker" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function set the degree for each speaker. For instance, if speakers are sitting at a particular degree (e.g. speaker-1 at 45 degree, speaker-2 at 135, etc). Those degrees can be used to differentiate among speakers.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>degrees</strong> (<em>List</em>) – List of degree having n items.</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
+  <div class="section" id="documenation-for-doaprocessor-class">
+<h1>Documenation for DoaProcessor class<a class="headerlink" href="#documenation-for-doaprocessor-class" title="Permalink to this headline">¶</a></h1>
+<p>DoA data file contains the direction of sound detected by the microphone array. This class provides functions to process DoA (Direction of Arrival) datafile.</p>
+<div class="section" id="loading-data-file">
+<h2>Loading data file<a class="headerlink" href="#loading-data-file" title="Permalink to this headline">¶</a></h2>
+<p>The data file should contain data in the following format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group</span><span class="o">-</span><span class="n">label</span><span class="p">,</span><span class="n">timestamp</span><span class="p">,</span><span class="n">direction</span>
+</pre></div>
+</div>
+<p>A snapshot of the data file is shown in the below image</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pydoa</span> <span class="k">import</span> <span class="n">DoaProcessor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Specify name of data file and number of speakers</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doa</span> <span class="o">=</span> <span class="n">DoaProcessor</span><span class="p">(</span><span class="s1">&#39;file.csv&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -270,7 +70,7 @@ It simply count the degree frequency and plot a bar graph.</p>
 <h3>Navigation</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Installing <code class="docutils literal notranslate"><span class="pre">PyDoA</span></code></a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DoaProcessor class</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documenation for DoaProcessor class</a></li>
 </ul>
 
 <div class="relations">

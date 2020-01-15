@@ -20,4 +20,6 @@ Above command will generate a web-based dashboard which can be accessible with t
 
 Dashboard
 -----------------------
-.. image:: images/dash.gif
+A snapshot of the generated dashboard provided below
+
+.. image:: images/dash-1.png

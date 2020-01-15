@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Welcome to PyDoA’s documentation! &#8212; PyDoA  documentation</title>
+    <title>PyDoA Documentation &#8212; PyDoA  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -16,6 +16,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installing PyDoA" href="installing.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,18 +33,37 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-pydoa-s-documentation">
-<h1>Welcome to PyDoA’s documentation!<a class="headerlink" href="#welcome-to-pydoa-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pydoa-documentation">
+<h1>PyDoA Documentation<a class="headerlink" href="#pydoa-documentation" title="Permalink to this headline">¶</a></h1>
+<p>The PyDoA package provides functionality of processing and visualizing DoA data.
+It provides the following main features:</p>
+<p>-The ability to map degrees to speakers
+-The ability to extract speaking time for each speaker
+-The ability to generate window-wise speaking time
+-The ability to generate interaction network
+_The ability to generate a web-based dashboard for visualizing the DoA data in an interactive manner.</p>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<p>Here is a simple script demonstrating the PyDoA:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pydoa</span> <span class="k">import</span> <span class="n">DoAProcessor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load the Survey</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doa</span> <span class="o">=</span> <span class="n">DoAProcessor</span><span class="p">(</span><span class="s1">&#39;speak.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Visualize distrbution of degrees</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">doa</span><span class="o">.</span><span class="n">generateDistribution</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="section" id="getting-started">
+<h3>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing <code class="docutils literal notranslate"><span class="pre">PyDoA</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="doaProcessor.html">DoaProcessor class</a></li>
 </ul>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -63,11 +83,16 @@
 
 
 <h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Installing <code class="docutils literal notranslate"><span class="pre">PyDoA</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="doaProcessor.html">DoaProcessor class</a></li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="installing.html" title="next chapter">Installing <code class="docutils literal notranslate"><span class="pre">PyDoA</span></code></a></li>
   </ul></li>
 </ul>
 </div>

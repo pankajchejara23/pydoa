@@ -146,7 +146,7 @@ class DoaProcessor(object):
         plt.xlabel('Direction of Arrival')
         plt.ylabel('Frequency')
         plt.show()
-        return peaks
+        return division[peaks]
 
 
 
@@ -167,6 +167,7 @@ class DoaProcessor(object):
         try:
             # Read the file
 
+            sep = 360/self.n - 30
 
             selfdf = self.file.copy()
 

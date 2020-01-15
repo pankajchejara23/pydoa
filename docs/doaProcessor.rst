@@ -1,5 +1,5 @@
 DoaProcessor class
 ***********************************
 
-.. automodule:: DoaProcessor
+.. automodule:: DoaProcessor.DoaProcessor
   :members:

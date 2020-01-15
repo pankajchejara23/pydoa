@@ -5,4 +5,14 @@ PyDoA is a python package aiming at simplifying processing the DoA (Direction of
 ### Installation
 You can install PyDoA using following command in
 
-`pip install pydoa`
+<pre> pip install pydoa </pre>
+
+### Dependencies
+
+### Quick Start
+
+### Full Documentation
+
+### Contributions
+
+### License

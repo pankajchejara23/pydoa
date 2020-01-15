@@ -13,8 +13,7 @@ import networkx as nx
 import base64
 import io
 import sys
-from ReAudio_group import ReAudio
-
+from DoaProcessor import DoaProcessor
 import plotly.graph_objs as go
 
 user_selector=[]
@@ -63,21 +62,18 @@ app = dash.Dash(__name__,external_stylesheets=["/assets/bootstrap.css","/assets/
 file_name = ""
 
 error_flag = False
-if len(sys.argv)!=2:
+if len(sys.argv)!=3:
 
     print('Error: You have not specified the file name')
-    print("Usage: python speech_analyzer.py csv-file-name")
+    print("Usage: python speech_analyzer.py csv-file-name no_speakers")
     sys.exit()
 else:
     file_name = sys.argv[1]
-    try:
-        df = pd.read_csv(file_name,names=['timestamp','direction'])
-    except Exception as e:
-        print('Error:',str(e))
-        sys.exit()
+    n = int(sys.argv[2])
+
 
 # Creating object of ReAudio library object
-re = ReAudio(file_name)
+re = DoaProcessor(file_name,n)
 
 
 # Get unique groups
@@ -89,6 +85,7 @@ group_options = []
 
 for group in groups:
     group_options.append({'label':group,'value':group})
+print(groups)
 # Dictionary to store speaking time for each group
 sp_time = {}
 
@@ -120,6 +117,8 @@ dir_freq = {}
 
 # iterate over each group in group_ips
 for group in groups:
+    deg = re.getHighestNdegrees(group=group)
+    re.setDegreeForSpeaker(deg)
     sp_time[group] = re.getSpeakingTime(plot=False,group=group)
     edge_file[group] = re.generateEdgeFile(group)
     elements[group] = generateElements(edge_file[group],sp_time[group])
@@ -168,12 +167,9 @@ sp_duration = [sp for sp in sp_time[default_group_value].values()]
 body = dbc.Container(
     [   dbc.Row([
             dbc.Col([
-                html.H1("Speech Analyzer"),
-                html.P("This web-app offers visualization of Log files collected from ReSpeaker and Etherpad Usage"+
-                ". It is developed using Python Dash Framework and utilizes Bootstrap for styling the page."),
-                html.P("Tallinn University")
-
-
+                html.H1("Direction of Arrival (DoA) Processor"),
+                html.P("This web-app offers visualization of doa files collected from microphone arrays."+
+                ". It is developed using Python Dash Framework and utilizes Bootstrap for styling the page.")
             ])
         ]),
 

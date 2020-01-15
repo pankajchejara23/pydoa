@@ -150,7 +150,7 @@ class DoaProcessor(object):
 
 
 
-    def getHighestNdegrees(self,sep,group='group-1'):
+    def getHighestNdegrees(self,sep=60,group='group-1'):
         """
         This function will search through the directions for specfied group and extract  n directions with highest frequencies.
         It simply count the degree frequency and return n degrees which are seperated by  particular degrees.

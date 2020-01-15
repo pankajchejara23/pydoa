@@ -33,3 +33,4 @@ Getting started
   installing.rst
   loading_data.rst
   doaProcessor.rst
+  dashGenerator.rst

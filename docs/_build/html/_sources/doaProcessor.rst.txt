@@ -173,7 +173,8 @@ DoaProcessor has functionality to draw the network showing the interaction among
 
 .. image:: images/net.png
 
-Size of the node represent the speaking time.
+  Size of the node represent the speaking time.
 
-Green node: Corresponding speaker's speaking time is greater than average speaking time.
-Red node: Corresponding speaker's speaking time is less than average speaking time.
+  Green node: Corresponding speaker's speaking time is greater than average speaking time.
+
+  Red node: Corresponding speaker's speaking time is less than average speaking time.

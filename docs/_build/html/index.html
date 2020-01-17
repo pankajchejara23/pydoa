@@ -46,16 +46,46 @@ It provides the following main features:</p>
 </ul>
 <div class="section" id="quick-start">
 <h2>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
-<p>Here is a simple script demonstrating the PyDoA:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pydoa</span> <span class="k">import</span> <span class="n">DoAProcessor</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Load the Survey</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">doa</span> <span class="o">=</span> <span class="n">DoAProcessor</span><span class="p">(</span><span class="s1">&#39;speak.csv&#39;</span><span class="p">)</span>
+</div>
+</div>
+<div class="section" id="id1">
+<h1>Quick Start<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>A sample data field is provided in the samples directory. Following examples are using that file.</p>
+<div class="section" id="plotting-smoother-degree-distribution">
+<h2>Plotting smoother degree distribution<a class="headerlink" href="#plotting-smoother-degree-distribution" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">DoaProcessor</span> <span class="k">import</span> <span class="n">DoaProcessor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">DoaProcessor</span><span class="p">(</span><span class="s1">&#39;./samples/sample.csv&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># You can tweak value of sigma to change the smoothness</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">getPeakDegree</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;group-1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Visualize distrbution of degrees</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">doa</span><span class="o">.</span><span class="n">generateDistribution</span><span class="p">()</span>
+<img alt="_images/peak-1.png" src="_images/peak-1.png" />
+<p>Degree distribution plot will help you in understanding the directions for each speaker. For instance, the above figure
+shows that highly captured directions are around 0, 100, 180,300 degrees.</p>
+</div>
+<div class="section" id="extracting-speaking-time-for-each-speaker">
+<h2>Extracting speaking time for each speaker<a class="headerlink" href="#extracting-speaking-time-for-each-speaker" title="Permalink to this headline">¶</a></h2>
+<p>In order to extract the speaking time, you need to specify the corresponding degrees for each speaker.
+This knowledge can be gained from the sitting arrangement of speakers around microphone arrays. You can also learn about it by manually exploring the degree distribution.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">DoaProcessor</span> <span class="k">import</span> <span class="n">DoaProcessor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">DoaProcessor</span><span class="p">(</span><span class="s1">&#39;./samples/sample.csv&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># manually setting directions for each user</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">setDegreeForSpeaker</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;group-&#39;</span><span class="p">,[</span><span class="mi">30</span><span class="p">,</span><span class="mi">104</span><span class="p">,</span><span class="mi">194</span><span class="p">,</span><span class="mi">315</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">getSpeakingTime</span><span class="p">(</span><span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;sec&#39;</span><span class="p">,</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;group-1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="_images/spk.png" src="_images/spk.png" />
+</div>
+<div class="section" id="generating-social-network">
+<h2>Generating social network<a class="headerlink" href="#generating-social-network" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">DoaProcessor</span> <span class="k">import</span> <span class="n">DoaProcessor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">DoaProcessor</span><span class="p">(</span><span class="s1">&#39;./samples/sample.csv&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># manually setting directions for each user</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">setDegreeForSpeaker</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;group-&#39;</span><span class="p">,[</span><span class="mi">30</span><span class="p">,</span><span class="mi">104</span><span class="p">,</span><span class="mi">194</span><span class="p">,</span><span class="mi">315</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">drawNetowrk</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="s1">&#39;group-1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/net.png" src="_images/net.png" />
 <div class="section" id="getting-started">
 <h3>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h3>
 <div class="toctree-wrapper compound">
@@ -63,12 +93,6 @@ It provides the following main features:</p>
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Installing <code class="docutils literal notranslate"><span class="pre">PyDoA</span></code></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installing.html#requirements">Requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing.html#installation">Installation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="loading_data.html">Quick Start</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="loading_data.html#plotting-smoother-degree-distribution">Plotting smoother degree distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loading_data.html#extracting-speaking-time-for-each-speaker">Extracting speaking time for each speaker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loading_data.html#generating-social-network">Generating social network</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="doaProcessor.html">DoaProcessor Tutorials</a><ul>
@@ -112,7 +136,6 @@ It provides the following main features:</p>
 <h3>Navigation</h3>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Installing <code class="docutils literal notranslate"><span class="pre">PyDoA</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="loading_data.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="doaProcessor.html">DoaProcessor Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dashGenerator.html">DashGenerator Tutorials</a></li>
 </ul>

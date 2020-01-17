@@ -1,14 +1,16 @@
-PyDoA Documentation
+PyDoA Python Package
 ========================
 
 The PyDoA package provides functionality of processing and visualizing DoA data.
 It provides the following main features:
 
--The ability to map degrees to speakers
--The ability to extract speaking time for each speaker
--The ability to generate window-wise speaking time
--The ability to generate interaction network
-_The ability to generate a web-based dashboard for visualizing the DoA data in an interactive manner.
+* The ability to map degrees to speakers
+* The ability to extract speaking time for each speaker
+
+* The ability to generate window-wise speaking time
+
+* The ability to generate interaction network
+* The ability to generate a web-based dashboard for visualizing the DoA data in an interactive manner.
 
 Quick Start
 -----------

@@ -6,11 +6,14 @@ Requirements
 
 This package has the following dependencies:
 
-* `Python <http://www.python.org>`_ 3.6 or later
-* `Numpy <http://www.numpy.org>`_ 1.8 or later
-* `Dash <http://www.astropy.org>`_ 1.0 or later
-* `matplotlib <https://matplotlib.org/>`_ 3.0 or later
-* `seaborn <https://seaborn.pydata.org/index.html>`_ 0.9 or later
+* `Python <http://www.python.org>`_.
+* `Pandas <http://https://pandas.pydata.org/>`_.
+* `Numpy <http://www.numpy.org>`_.
+* `Networkx <https://networkx.github.io/>`_.
+* `dash <https://dash.plot.ly/?_ga=2.17841072.821630568.1579162221-399804219.1571309067>`_.
+* `matplotlib <https://matplotlib.org/>`_.
+* `dash-bootstrap-component <https://dash-bootstrap-components.opensource.faculty.ai/>`_.
+* `dash-Cytoscape <https://dash.plot.ly/cytoscape>`_.
 
 
 

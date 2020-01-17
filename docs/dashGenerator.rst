@@ -22,4 +22,4 @@ Dashboard
 -----------------------
 A snapshot of the generated dashboard provided below
 
-.. image:: images/dash.gif
+.. image:: images/dash-1.png

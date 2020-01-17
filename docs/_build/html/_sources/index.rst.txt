@@ -15,8 +15,6 @@ It provides the following main features:
 Quick Start
 -----------
 
-Quick Start
-===================
 A sample data field is provided in the samples directory. Following examples are using that file.
 
 Plotting smoother degree distribution

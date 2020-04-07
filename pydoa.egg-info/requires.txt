@@ -1,0 +1,9 @@
+requests
+pandas
+networkx
+scipy
+dash
+numpy
+matplotlib
+dash-bootstrap-components
+dash-cytoscape

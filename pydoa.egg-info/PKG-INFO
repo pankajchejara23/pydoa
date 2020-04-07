@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: pydoa
+Version: 1.3
+Summary: Python package for processing and visualizing direction of arrival data.
+Home-page: https://github.com/pankajchejara23/pydoa
+Author: Pankaj Chejara
+Author-email: pankajchejara23@gmail.com
+License: MIT
+Description: # PyDoA
+        ##### A Python Package for Processing and Visualizing DoA (Direction of Arrival) data from Group Discussion
+        PyDoA is a python package aiming at simplifying processing the DoA (Direction of Arrival) data captured from microphone arrays. DoA data contains direction of sound arrival which in the case of circular array varies from 0 to 360 degrees.
+        
+        ### Installation
+        
+        You can install PyDoA using pip::
+        
+        <pre> pip install pydoa </pre>
+        
+        To install the latest developer version of PyDoA you can type::
+        <pre>
+            git clone https://github.com/pankajchejara23/pydoa.git
+            cd pydoa
+            python setup.py install
+        </pre>
+        
+        You may need to add the ``--user`` option to the last line `if you do not
+        have root access <https://docs.python.org/2/install/#alternate-installation-the-user-scheme>`_.
+        You can also install the latest developer version in a single line with pip::
+        <pre>
+            pip install git+https://github.com/pankajchejara23/pydoa.git
+        </pre>
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
